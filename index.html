@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My BBE Girls 💙</title>
+
+<style>
+body{
+    margin:0;
+    padding:0;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    background: linear-gradient(135deg,#bde0fe,#a2d2ff);
+    font-family: 'Arial', sans-serif;
+    overflow:hidden;
+}
+
+button{
+    padding:15px 30px;
+    font-size:20px;
+    border:none;
+    border-radius:30px;
+    background:white;
+    color:#4a90e2;
+    cursor:pointer;
+    transition:0.3s;
+    box-shadow:0 0 15px rgba(0,0,0,0.1);
+}
+
+button:hover{
+    transform:scale(1.1);
+}
+
+#message{
+    display:none;
+    margin-top:30px;
+    font-size:35px;
+    color:white;
+    text-align:center;
+    animation: fadeIn 1.5s ease forwards;
+}
+
+@keyframes fadeIn{
+    from{opacity:0; transform:translateY(20px);}
+    to{opacity:1; transform:translateY(0);}
+}
+
+.heart{
+    position:absolute;
+    font-size:20px;
+    animation: float 6s linear infinite;
+}
+
+@keyframes float{
+    0%{
+        transform:translateY(100vh);
+        opacity:1;
+    }
+    100%{
+        transform:translateY(-10vh);
+        opacity:0;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<button onclick="showMessage()">Click here 💌</button>
+
+<div id="message">
+    Thanks for everything<br>my bbe girls 💙✨
+</div>
+
+<script>
+function showMessage(){
+    document.getElementById("message").style.display="block";
+}
+
+function createHeart(){
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML="💙";
+    heart.style.left=Math.random()*100+"vw";
+    heart.style.fontSize=(Math.random()*20+15)+"px";
+    document.body.appendChild(heart);
+
+    setTimeout(()=>{
+        heart.remove();
+    },6000);
+}
+
+setInterval(createHeart,400);
+</script>
+
+</body>
+</html>
